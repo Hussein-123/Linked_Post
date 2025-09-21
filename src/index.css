@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+.active {
+  @apply text-blue-700 font-medium;
+}
+body {
+  @apply bg-slate-100;
+}
