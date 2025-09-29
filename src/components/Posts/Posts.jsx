@@ -39,7 +39,7 @@ export default function Posts({ postInfo }) {
             <img src={postInfo?.image} alt="" className="w-full rounded-lg" />
           )}
         </div>
-        <div className="flex justify-between px-4 text-slate-600">
+        <div className="flex justify-between md:px-4 text-slate-600">
           <div className="flex gap-1 items-center cursor-pointer">
             <i className="fa-solid fa-thumbs-up text-xl"></i>
             <h5 className="text-lg">Like</h5>
