@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import style from "./Navbar.module.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { initFlowbite } from "flowbite";
 
 export default function Navbar() {
+  useEffect(() => {
+    initFlowbite();
+  }, []);
+
   let { token, setToken } = useContext(UserContext);
   let navigate = useNavigate();
+
   function signOut() {
     localStorage.removeItem("token");
     setToken(null);
