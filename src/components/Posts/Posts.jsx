@@ -40,15 +40,15 @@ export default function Posts({ postInfo }) {
           )}
         </div>
         <div className="flex justify-between px-4 text-slate-600">
-          <div className="flex gap-2 items-center cursor-pointer">
+          <div className="flex gap-1 items-center cursor-pointer">
             <i className="fa-solid fa-thumbs-up text-xl"></i>
             <h5 className="text-lg">Like</h5>
           </div>
-          <div className="flex gap-2 items-center cursor-pointer">
+          <div className="flex gap-1 items-center cursor-pointer">
             <i className="fa-solid fa-comment text-xl"></i>
             <h5 className="text-lg">Comment</h5>
           </div>
-          <div className="flex gap-2 items-center cursor-pointer">
+          <div className="flex gap-1 items-center cursor-pointer">
             <i className="fa-solid fa-share text-xl"></i>
             <h5 className="text-lg">Share</h5>
           </div>
