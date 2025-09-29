@@ -60,7 +60,7 @@ export default function Login() {
       <h1 className="text-center text-4xl text-blue-700 font-medium">Login</h1>
       <form
         onSubmit={handleSubmit(handleLogin)}
-        className="max-w-md md:max-w-xl mx-auto my-14"
+        className="max-w-sm md:max-w-xl mx-auto my-14"
       >
         <div className="mb-5">
           <label

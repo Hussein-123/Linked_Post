@@ -86,7 +86,7 @@ export default function Register() {
       </h1>
       <form
         onSubmit={handleSubmit(handleRegister)}
-        className="max-w-md md:max-w-xl mx-auto my-14"
+        className="max-w-sm md:max-w-xl mx-auto my-14"
       >
         <div className="mb-5">
           <label
