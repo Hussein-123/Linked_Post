@@ -17,10 +17,15 @@ export default function CreatePost() {
   });
   let { register, handleSubmit } = form;
   let queryClient = useQueryClient();
+
   async function addPost(values) {
     let formData = new FormData();
     formData.append("body", values.body);
-    formData.append("image", values.image[0]);
+
+    if (values.image[0]) {
+      formData.append("image", values.image[0]);
+    }
+
     try {
       let { data } = await axios.post(
         "https://linked-posts.routemisr.com/posts",

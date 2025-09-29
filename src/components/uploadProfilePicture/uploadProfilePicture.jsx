@@ -1,16 +1,20 @@
 import React, { useContext, useEffect } from "react";
-import style from "./UploadProfilePicture.module.css";
+import style from "./uploadProfilePicture.module.css";
 import { UserContext } from "../../context/UserContext";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { initFlowbite } from "flowbite";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function UploadProfilePicture() {
   useEffect(() => {
     initFlowbite();
   }, []);
+
+  let queryClient = useQueryClient();
   const { token } = useContext(UserContext);
+
   const form = useForm({
     defaultValues: {
       photo: "",
@@ -33,6 +37,7 @@ export default function UploadProfilePicture() {
       );
       if (data.message === "success") {
         toast.success("Profile Image is change");
+        queryClient.invalidateQueries({ queryKey: ["userData", "userPosts"] });
       }
     } catch (error) {
       toast.error("Image must be JPG , JPEG , PNG");

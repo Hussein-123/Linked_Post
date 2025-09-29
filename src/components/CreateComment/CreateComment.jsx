@@ -4,9 +4,12 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { UserContext } from "../../context/UserContext";
 import toast from "react-hot-toast";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function CreateComment({ postId }) {
   const { token } = useContext(UserContext);
+  let queryClient = useQueryClient();
+
   const form = useForm({
     defaultValues: {
       content: "",
@@ -27,7 +30,12 @@ export default function CreateComment({ postId }) {
           },
         }
       );
-      toast.success("Comment Added Successfully");
+      if (data.message === "success") {
+        toast.success("Comment Added Successfully");
+        queryClient.invalidateQueries({
+          queryKey: ["getPosts"],
+        });
+      }
     } catch (error) {
       toast.error("Comment Doesn't Add");
     }

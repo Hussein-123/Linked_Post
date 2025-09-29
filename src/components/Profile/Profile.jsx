@@ -50,6 +50,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      <CreatePost />
       {data && <UserPosts id={data?._id} />}
     </>
   );
