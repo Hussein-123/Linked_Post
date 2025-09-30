@@ -29,7 +29,7 @@ export default function CommentOptions({ commentId }) {
         queryClient.invalidateQueries({ queryKey: ["userPosts"] });
       }
     } catch (error) {
-      toast.error(error.data.error);
+      toast.error(error.response?.data?.error);
     }
   }
 
@@ -63,7 +63,7 @@ export default function CommentOptions({ commentId }) {
       <button
         id="dropdownMenuIconButton"
         data-dropdown-toggle={"dropdown" + commentId}
-        className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 dark:text-white dark:bg-gray-800 cursor-pointer"
+        className="inline-flex items-center p-2 text-sm font-medium text-center text-slate-700 cursor-pointer"
         type="button"
       >
         <svg

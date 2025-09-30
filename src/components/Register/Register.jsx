@@ -11,6 +11,8 @@ export default function Register() {
   const navigate = useNavigate();
   const [accountExistError, setAccountExistError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const schema = z
     .object({
@@ -142,13 +144,26 @@ export default function Register() {
           >
             Password
           </label>
-          <input
-            {...register("password")}
-            type="password"
-            id="password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter Your Password"
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              {...register("password")}
+              id="password"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter Your Password"
+            />
+            <button
+              type="button"
+              className="absolute right-2 top-2 text-slate-400"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <i className="fa-solid fa-eye-slash"></i>
+              ) : (
+                <i className="fa-solid fa-eye"></i>
+              )}
+            </button>
+          </div>
           {formState.errors.password && formState.touchedFields.password ? (
             <p className="text-red-500 font-semibold">
               {formState.errors.password.message}
@@ -164,13 +179,26 @@ export default function Register() {
           >
             Confirm Password
           </label>
-          <input
-            {...register("rePassword")}
-            type="password"
-            id="rePassword"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Confirm Password"
-          />
+          <div className="relative">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              {...register("rePassword")}
+              id="rePassword"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Confirm Password"
+            />
+            <button
+              type="button"
+              className="absolute right-2 top-2 text-slate-400"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            >
+              {showConfirmPassword ? (
+                <i className="fa-solid fa-eye-slash"></i>
+              ) : (
+                <i className="fa-solid fa-eye"></i>
+              )}
+            </button>
+          </div>
           {formState.errors.rePassword && formState.touchedFields.rePassword ? (
             <p className="text-red-500 font-semibold">
               {formState.errors.rePassword.message}

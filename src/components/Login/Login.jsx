@@ -13,6 +13,7 @@ export default function Login() {
   const [accountExistError, setAccountExistError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   let { token, setToken } = useContext(UserContext);
+  const [showPassword, setShowPassword] = useState(false);
 
   const schema = z.object({
     email: z.email("Invalid Email").nonempty("Email is Required"),
@@ -91,13 +92,26 @@ export default function Login() {
           >
             Password
           </label>
-          <input
-            {...register("password")}
-            type="password"
-            id="password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter Your Password"
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              {...register("password")}
+              id="password"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter Your Password"
+            />
+            <button
+              type="button"
+              className="absolute right-2 top-2 text-slate-400"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <i className="fa-solid fa-eye-slash"></i>
+              ) : (
+                <i className="fa-solid fa-eye"></i>
+              )}
+            </button>
+          </div>
           {formState.errors.password && formState.touchedFields.password ? (
             <p className="text-red-500 font-semibold">
               {formState.errors.password.message}

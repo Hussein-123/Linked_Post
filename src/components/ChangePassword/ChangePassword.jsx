@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./ChangePassword.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -54,9 +54,12 @@ export default function ChangePassword() {
         toast.success("Password is change");
       }
     } catch (error) {
-      toast.error("There is something wrong ?");
+      toast.error(error.response?.data?.message);
     }
   }
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
 
   return (
     <>
@@ -102,12 +105,25 @@ export default function ChangePassword() {
                     >
                       Password
                     </label>
-                    <input
-                      type="password"
-                      {...register("password")}
-                      id="password"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    />
+                    <div className="relative">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        {...register("password")}
+                        id="password"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                      />
+                      <button
+                        type="button"
+                        className="absolute right-2 top-2 text-slate-400"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        {showPassword ? (
+                          <i className="fa-solid fa-eye-slash"></i>
+                        ) : (
+                          <i className="fa-solid fa-eye"></i>
+                        )}
+                      </button>
+                    </div>
                     {formState.errors.password &&
                     formState.touchedFields.password ? (
                       <p className="text-red-500 font-semibold">
@@ -124,12 +140,25 @@ export default function ChangePassword() {
                     >
                       New Password
                     </label>
-                    <input
-                      type="password"
-                      {...register("newPassword")}
-                      id="newPassword"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                    />
+                    <div className="relative">
+                      <input
+                        type={showNewPassword ? "text" : "password"}
+                        {...register("newPassword")}
+                        id="newPassword"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                      />
+                      <button
+                        type="button"
+                        className="absolute right-2 top-2 text-slate-400"
+                        onClick={() => setShowNewPassword(!showNewPassword)}
+                      >
+                        {showNewPassword ? (
+                          <i className="fa-solid fa-eye-slash"></i>
+                        ) : (
+                          <i className="fa-solid fa-eye"></i>
+                        )}
+                      </button>
+                    </div>
                     {formState.errors.newPassword &&
                     formState.touchedFields.newPassword ? (
                       <p className="text-red-500 font-semibold">
