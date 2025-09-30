@@ -29,6 +29,7 @@ export default function PostOptions({ postId }) {
       );
       if (data.message === "success") {
         toast.success("Post deleted successfully");
+        queryClient.invalidateQueries({ queryKey: ["getPosts"] });
         queryClient.invalidateQueries({ queryKey: ["userPosts"] });
       }
     } catch (error) {

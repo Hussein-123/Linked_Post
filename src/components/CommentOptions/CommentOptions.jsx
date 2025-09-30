@@ -26,6 +26,7 @@ export default function CommentOptions({ commentId }) {
       );
       if (data.message === "success") {
         toast.success("Comment deleted successfully");
+        queryClient.invalidateQueries({ queryKey: ["getPosts"] });
         queryClient.invalidateQueries({ queryKey: ["userPosts"] });
       }
     } catch (error) {
