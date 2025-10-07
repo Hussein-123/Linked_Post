@@ -13,7 +13,7 @@ export default function Login() {
   const [accountExistError, setAccountExistError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   let { token, setToken } = useContext(UserContext);
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(true);
 
   const schema = z.object({
     email: z.email("Invalid Email").nonempty("Email is Required"),
@@ -94,7 +94,7 @@ export default function Login() {
           </label>
           <div className="relative">
             <input
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? "password" : "text"}
               {...register("password")}
               id="password"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
