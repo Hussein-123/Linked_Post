@@ -1,4 +1,3 @@
-import style from "./Home.module.css";
 import axios from "axios";
 import Posts from "../Posts/Posts";
 import { useQuery } from "@tanstack/react-query";

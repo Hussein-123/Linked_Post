@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import style from "./PostDetails.module.css";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import axios from "axios";

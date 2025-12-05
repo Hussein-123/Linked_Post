@@ -1,5 +1,4 @@
 import React from "react";
-import style from "./Posts.module.css";
 import Comment from "../Comment/Comment";
 import { Link } from "react-router-dom";
 import CreateComment from "../CreateComment/CreateComment";

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import style from "./Comment.module.css";
 import user from "../../assets/user.png";
 import { UserContext } from "../../context/UserContext";
 import CommentOptions from "../CommentOptions/CommentOptions";

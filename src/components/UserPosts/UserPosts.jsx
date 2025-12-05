@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import style from "./UserPosts.module.css";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { UserContext } from "../../context/UserContext";

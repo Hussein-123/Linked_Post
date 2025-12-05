@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import style from "./ProtectedRoute.module.css";
 import { UserContext } from "../../context/UserContext";
 import { Navigate } from "react-router-dom";
 

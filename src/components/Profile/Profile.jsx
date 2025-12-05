@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import style from "./Profile.module.css";
 import { UserContext } from "../../context/UserContext";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";

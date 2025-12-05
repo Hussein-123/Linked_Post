@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import style from "./CreateComment.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { UserContext } from "../../context/UserContext";

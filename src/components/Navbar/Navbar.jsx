@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import style from "./Navbar.module.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import axios from "axios";

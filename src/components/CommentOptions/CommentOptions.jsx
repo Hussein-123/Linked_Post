@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import style from "./CommentOptions.module.css";
 import { UserContext } from "../../context/UserContext";
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";

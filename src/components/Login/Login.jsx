@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import style from "./Login.module.css";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
