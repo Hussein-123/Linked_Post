@@ -35,18 +35,18 @@ export default function PostDetails() {
 
   return (
     <>
-      <div className="w-full md:w-[80%] lg:w-[50%]  p-5 mx-auto">
-        <div className="bg-white p-5 rounded-lg space-y-5 shadow-md">
+      <div className="w-full md:w-[80%] lg:w-[50%] p-2 sm:p-5 mx-auto">
+        <div className="surface-card p-6 space-y-6">
           <div className="flex justify-between">
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-3 items-center">
               <img
                 src={data?.user.photo}
-                className="size-[50px] rounded-full"
+                className="size-[50px] rounded-full object-cover subtle-border"
                 alt=""
               />
               <div>
-                <h3 className="text-lg font-semibold">{data?.user.name}</h3>
-                <h4 className="text-slate-500">{data?.createdAt}</h4>
+                <h3 className="text-xl font-semibold">{data?.user.name}</h3>
+                <h4 className="muted-text text-base">{data?.createdAt}</h4>
               </div>
             </div>
             <div>
@@ -54,23 +54,27 @@ export default function PostDetails() {
             </div>
           </div>
           <div>
-            {data?.body && <h2 className="mb-4">{data?.body}</h2>}
+            {data?.body && (
+              <h2 className="mb-5 text-xl leading-8 text-slate-800">
+                {data?.body}
+              </h2>
+            )}
             {data?.image && (
               <img src={data?.image} alt="" className="w-full rounded-lg" />
             )}
           </div>
-          <div className="flex justify-between px-4 text-slate-600">
-            <div className="flex gap-2 items-center cursor-pointer">
+          <div className="flex justify-between px-2 text-slate-600">
+            <div className="flex gap-3 items-center cursor-pointer hover:text-sky-700 transition-colors">
               <i className="fa-solid fa-thumbs-up text-xl"></i>
-              <h5 className="text-lg">Like</h5>
+              <h5 className="text-base md:text-lg font-semibold">Like</h5>
             </div>
-            <div className="flex gap-2 items-center cursor-pointer">
+            <div className="flex gap-3 items-center cursor-pointer hover:text-sky-700 transition-colors">
               <i className="fa-solid fa-comment text-xl"></i>
-              <h5 className="text-lg">Comment</h5>
+              <h5 className="text-base md:text-lg font-semibold">Comment</h5>
             </div>
-            <div className="flex gap-2 items-center cursor-pointer">
+            <div className="flex gap-3 items-center cursor-pointer hover:text-sky-700 transition-colors">
               <i className="fa-solid fa-share text-xl"></i>
-              <h5 className="text-lg">Share</h5>
+              <h5 className="text-base md:text-lg font-semibold">Share</h5>
             </div>
           </div>
           <div className="border-b border-b-slate-300"></div>

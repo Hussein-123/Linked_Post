@@ -28,22 +28,34 @@ export default function Profile() {
 
   return (
     <>
-      <div className="w-full md:w-[80%] lg:w-[50%] mx-auto px-5 mb-6">
-        <div className="border-2 border-slate-300 rounded-lg p-5 space-y-3">
-          <div className="flex items-center gap-3">
+      <div className="w-full md:w-[90%] lg:w-[70%] mx-auto px-3 sm:px-6 mb-8 mt-12">
+        <div className="surface-card p-8 space-y-5">
+          <div className="flex items-center gap-4">
             <img
               src={data?.photo}
-              className="size-[60px] rounded-full"
+              className="size-[70px] rounded-full object-cover subtle-border"
               alt=""
             />
-            <h2 className="text-xl">{data?.name}</h2>
+            <div>
+              <h2 className="text-xl font-semibold">{data?.name}</h2>
+              <p className="muted-text">Your public profile</p>
+            </div>
           </div>
-          <div className="text-slate-600 flex justify-between flex-wrap">
-            <h2>Email: {data?.email}</h2>
-            <h2>Gender: {data?.gender}</h2>
-            <h2>Birthday: {data?.dateOfBirth}</h2>
+          <div className="text-slate-700 grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="subtle-border rounded-lg p-3 bg-white/70">
+              <p className="muted-text text-sm uppercase">Email</p>
+              <p className="font-semibold">{data?.email}</p>
+            </div>
+            <div className="subtle-border rounded-lg p-3 bg-white/70">
+              <p className="muted-text text-sm uppercase">Gender</p>
+              <p className="font-semibold capitalize">{data?.gender}</p>
+            </div>
+            <div className="subtle-border rounded-lg p-3 bg-white/70 md:col-span-2">
+              <p className="muted-text text-sm uppercase">Birthday</p>
+              <p className="font-semibold">{data?.dateOfBirth}</p>
+            </div>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col md:flex-row gap-3">
             <ChangePassword />
             <UploadProfilePicture />
           </div>

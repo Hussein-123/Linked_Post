@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <CreatePost />
-      <div className="w-full md:w-[80%] lg:w-[50%] px-5 mx-auto">
+      <div className="w-full md:w-[90%] lg:w-[70%] px-3 sm:px-6 mx-auto">
         {data?.map((post) => (
           <Posts postInfo={post} key={post._id} />
         ))}

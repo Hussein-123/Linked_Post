@@ -73,7 +73,7 @@ export default function ChangePassword() {
         <button
           ref={modalButtonRef}
           onClick={() => setIsModalOpen(true)}
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer"
+          className="btn-primary w-full"
           type="button"
         >
           Change Password
@@ -180,10 +180,7 @@ export default function ChangePassword() {
                           ""
                         )}
                       </div>
-                      <button
-                        type="submit"
-                        className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer"
-                      >
+                      <button type="submit" className="btn-primary w-full">
                         Change Password
                       </button>
                     </form>

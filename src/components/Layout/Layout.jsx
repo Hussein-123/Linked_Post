@@ -6,9 +6,9 @@ export default function Layout() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto pt-12 min-h-[70vh]">
+      <main className="page-shell min-h-[70vh]">
         <Outlet></Outlet>
-      </div>
+      </main>
     </>
   );
 }

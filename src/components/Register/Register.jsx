@@ -82,193 +82,200 @@ export default function Register() {
 
   return (
     <>
-      <h1 className="text-center text-4xl text-blue-700 font-medium">
-        Register
-      </h1>
-      <form
-        onSubmit={handleSubmit(handleRegister)}
-        className="w-full md:w-[80%] lg:w-[45%] mx-auto my-14 px-5"
-      >
-        <div className="mb-5">
-          <label
-            htmlFor="name"
-            className="block mb-2 text-sm font-medium text-gray-900"
+      <div className="w-full md:w-[75%] lg:w-[55%] mx-auto my-12 px-4">
+        <div className="surface-card p-8 space-y-6 text-center">
+          <div className="space-y-2">
+            <div className="pill justify-center mx-auto w-fit">
+              Join the community
+            </div>
+            <h1 className="section-title">Create your account</h1>
+          </div>
+
+          <form
+            onSubmit={handleSubmit(handleRegister)}
+            className="space-y-4 text-left"
           >
-            Your Name
-          </label>
-          <input
-            {...register("name")}
-            type="text"
-            id="name"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter Your Name"
-          />
-          {formState.errors.name && formState.touchedFields.name ? (
-            <p className="text-red-500 font-semibold">
-              {formState.errors.name.message}
-            </p>
-          ) : (
-            ""
-          )}
-        </div>
-        <div className="mb-5">
-          <label
-            htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            Your Email
-          </label>
-          <input
-            {...register("email")}
-            type="email"
-            id="email"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter Your Email"
-          />
-          {formState.errors.email && formState.touchedFields.email ? (
-            <p className="text-red-500 font-semibold">
-              {formState.errors.email.message}
-            </p>
-          ) : (
-            ""
-          )}
-          {accountExistError && (
-            <p className="text-red-500 font-semibold">{accountExistError}</p>
-          )}
-        </div>
-        <div className="mb-5">
-          <label
-            htmlFor="password"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            Password
-          </label>
-          <div className="relative">
-            <input
-              type={showPassword ? "password" : "text"}
-              {...register("password")}
-              id="password"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Enter Your Password"
-            />
-            <button
-              type="button"
-              className="absolute right-2 top-2 text-slate-400"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? (
-                <i className="fa-solid fa-eye-slash"></i>
+            <div className="space-y-2">
+              <label
+                htmlFor="name"
+                className="block text-sm font-semibold text-slate-800"
+              >
+                Name
+              </label>
+              <input
+                {...register("name")}
+                type="text"
+                id="name"
+                className="input-field"
+                placeholder="Enter your name"
+              />
+              {formState.errors.name && formState.touchedFields.name ? (
+                <p className="text-red-500 font-semibold">
+                  {formState.errors.name.message}
+                </p>
               ) : (
-                <i className="fa-solid fa-eye"></i>
+                ""
+              )}
+            </div>
+            <div className="space-y-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-semibold text-slate-800"
+              >
+                Email
+              </label>
+              <input
+                {...register("email")}
+                type="email"
+                id="email"
+                className="input-field"
+                placeholder="Enter your email"
+              />
+              {formState.errors.email && formState.touchedFields.email ? (
+                <p className="text-red-500 font-semibold">
+                  {formState.errors.email.message}
+                </p>
+              ) : (
+                ""
+              )}
+              {accountExistError && (
+                <p className="text-red-500 font-semibold">
+                  {accountExistError}
+                </p>
+              )}
+            </div>
+            <div className="space-y-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-semibold text-slate-800"
+              >
+                Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "password" : "text"}
+                  {...register("password")}
+                  id="password"
+                  className="input-field pr-12"
+                  placeholder="Enter your password"
+                />
+                <button
+                  type="button"
+                  className="absolute right-3 top-2.5 text-slate-400"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <i className="fa-solid fa-eye-slash"></i>
+                  ) : (
+                    <i className="fa-solid fa-eye"></i>
+                  )}
+                </button>
+              </div>
+              {formState.errors.password && formState.touchedFields.password ? (
+                <p className="text-red-500 font-semibold">
+                  {formState.errors.password.message}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="space-y-2">
+              <label
+                htmlFor="rePassword"
+                className="block text-sm font-semibold text-slate-800"
+              >
+                Confirm Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showConfirmPassword ? "password" : "text"}
+                  {...register("rePassword")}
+                  id="rePassword"
+                  className="input-field pr-12"
+                  placeholder="Confirm your password"
+                />
+                <button
+                  type="button"
+                  className="absolute right-3 top-2.5 text-slate-400"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? (
+                    <i className="fa-solid fa-eye-slash"></i>
+                  ) : (
+                    <i className="fa-solid fa-eye"></i>
+                  )}
+                </button>
+              </div>
+              {formState.errors.rePassword &&
+              formState.touchedFields.rePassword ? (
+                <p className="text-red-500 font-semibold">
+                  {formState.errors.rePassword.message}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="flex gap-4 flex-col md:flex-row">
+              <div className="w-full md:w-1/2 space-y-2">
+                <label
+                  htmlFor="dateOfBirth"
+                  className="block text-sm font-semibold text-slate-800"
+                >
+                  Birthday
+                </label>
+                <input
+                  {...register("dateOfBirth")}
+                  type="date"
+                  id="dateOfBirth"
+                  className="input-field"
+                  placeholder="Enter your birthday"
+                />
+                {formState.errors.dateOfBirth &&
+                formState.touchedFields.dateOfBirth ? (
+                  <p className="text-red-500 font-semibold">
+                    {formState.errors.dateOfBirth.message}
+                  </p>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className="w-full md:w-1/2 space-y-2">
+                <label
+                  htmlFor="gender"
+                  className="block text-sm font-semibold text-slate-800"
+                >
+                  Gender
+                </label>
+                <select
+                  {...register("gender")}
+                  id="gender"
+                  className="input-field"
+                >
+                  <option defaultValue={""} disabled>
+                    Choose your gender
+                  </option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+                {formState.errors.gender && formState.touchedFields.gender ? (
+                  <p className="text-red-500 font-semibold">
+                    {formState.errors.gender.message}
+                  </p>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+            <button disabled={isLoading} type="submit" className="btn-primary">
+              {isLoading ? (
+                <i className="fa-solid fa-circle-notch fa-spin text-white"></i>
+              ) : (
+                "Create Account"
               )}
             </button>
-          </div>
-          {formState.errors.password && formState.touchedFields.password ? (
-            <p className="text-red-500 font-semibold">
-              {formState.errors.password.message}
-            </p>
-          ) : (
-            ""
-          )}
+          </form>
         </div>
-        <div className="mb-5">
-          <label
-            htmlFor="rePassword"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            Confirm Password
-          </label>
-          <div className="relative">
-            <input
-              type={showConfirmPassword ? "password" : "text"}
-              {...register("rePassword")}
-              id="rePassword"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Confirm Password"
-            />
-            <button
-              type="button"
-              className="absolute right-2 top-2 text-slate-400"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-            >
-              {showConfirmPassword ? (
-                <i className="fa-solid fa-eye-slash"></i>
-              ) : (
-                <i className="fa-solid fa-eye"></i>
-              )}
-            </button>
-          </div>
-          {formState.errors.rePassword && formState.touchedFields.rePassword ? (
-            <p className="text-red-500 font-semibold">
-              {formState.errors.rePassword.message}
-            </p>
-          ) : (
-            ""
-          )}
-        </div>
-        <div className="flex gap-4">
-          <div className="mb-5 w-1/2">
-            <label
-              htmlFor="dateOfBirth"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Birthday
-            </label>
-            <input
-              {...register("dateOfBirth")}
-              type="date"
-              id="dateOfBirth"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Enter Your Birthday"
-            />
-            {formState.errors.dateOfBirth &&
-            formState.touchedFields.dateOfBirth ? (
-              <p className="text-red-500 font-semibold">
-                {formState.errors.dateOfBirth.message}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className="mb-5 w-1/2">
-            <label
-              htmlFor="gender"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Select Your Gender
-            </label>
-            <select
-              {...register("gender")}
-              id="gender"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            >
-              <option defaultValue={""} disabled>
-                Choose Your Gender
-              </option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-            {formState.errors.gender && formState.touchedFields.gender ? (
-              <p className="text-red-500 font-semibold">
-                {formState.errors.gender.message}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
-        <button
-          disabled={isLoading}
-          type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          {isLoading ? (
-            <i className="fa-solid fa-circle-notch fa-spin text-white"></i>
-          ) : (
-            "Create Account"
-          )}
-        </button>
-      </form>
+      </div>
     </>
   );
 }

@@ -36,22 +36,20 @@ export default function Navbar() {
   });
   return (
     <>
-      <nav className="bg-white sticky top-0 dark:bg-gray-900  w-full z-20 border-b border-gray-200 dark:border-gray-600">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <Link
-            to="/"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
-            <span className="self-center text-2xl font-semibold whitespace-nowrap text-blue-700 dark:text-white">
+      <nav className="glass-nav sticky top-0 w-full z-30">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
+          <Link to="/" className="flex items-center gap-3">
+            <div className="pill">LP</div>
+            <span className="self-center text-2xl font-semibold whitespace-nowrap text-slate-900">
               Linked Posts
             </span>
           </Link>
-          <div className="flex gap-4 items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <div className="flex gap-4 items-center md:order-2">
             {token !== null ? (
               <>
                 <button
                   type="button"
-                  className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                  className="flex text-sm bg-white subtle-border rounded-full md:me-0 focus:ring-4 focus:ring-sky-100 shadow-sm"
                   id="user-menu-button"
                   aria-expanded="false"
                   data-dropdown-toggle="user-dropdown"
@@ -59,20 +57,20 @@ export default function Navbar() {
                 >
                   <span className="sr-only">Open user menu</span>
                   <img
-                    className="size-[38px] rounded-full"
+                    className="size-[38px] rounded-full object-cover"
                     src={data?.photo}
                     alt={data?.photo}
                   />
                 </button>
                 <div
-                  className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 dark:divide-gray-600"
+                  className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm"
                   id="user-dropdown"
                 >
                   <div className="px-4 py-3">
-                    <span className="block text-sm text-gray-900 dark:text-white">
+                    <span className="block text-sm text-gray-900">
                       {data?.name}
                     </span>
-                    <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
+                    <span className="block text-sm  text-gray-500 truncate">
                       {data?.email}
                     </span>
                   </div>
@@ -80,7 +78,7 @@ export default function Navbar() {
                     <li>
                       <Link
                         to="/profile"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Profile
                       </Link>
@@ -88,7 +86,7 @@ export default function Navbar() {
                     <li>
                       <span
                         onClick={signOut}
-                        className="block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        className="block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Sign out
                       </span>
@@ -97,12 +95,22 @@ export default function Navbar() {
                 </div>
               </>
             ) : (
-              <ul className="flex gap-4 dark:text-white text-lg md:text-xl">
+              <ul className="flex gap-3 text-base md:text-lg font-semibold">
                 <li>
-                  <NavLink to="/login">Login</NavLink>
+                  <NavLink
+                    to="/login"
+                    className="btn-ghost px-4 py-2 hover:no-underline"
+                  >
+                    Login
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/register">Register</NavLink>
+                  <NavLink
+                    to="/register"
+                    className="btn-primary w-auto px-4 py-2 hover:no-underline"
+                  >
+                    Register
+                  </NavLink>
                 </li>
               </ul>
             )}

@@ -49,19 +49,16 @@ export default function CreateComment({ postId }) {
         <input
           {...register("content")}
           type="text"
-          className="w-[80%] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="w-[80%] input-field"
           placeholder="Comment ..........."
         />
         <input
           {...register("post")}
           type="hidden"
           value={postId}
-          className="w-[80%] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="w-[80%] bg-transparent"
         />
-        <button
-          type="submit"
-          className="rounded-lg bg-blue-700 text-white cursor-pointer px-2"
-        >
+        <button type="submit" className="btn-ghost">
           Add Comment
         </button>
       </form>

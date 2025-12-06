@@ -45,15 +45,15 @@ export default function CreatePost() {
   }
   return (
     <>
-      <div className="w-full md:w-[80%] lg:w-[50%] px-5 mx-auto mb-9">
-        <div className="p-5 bg-white rounded-lg shadow-md">
+      <div className="w-full md:w-[90%] lg:w-[70%] px-3 sm:px-6 mx-auto mb-10 mt-12">
+        <div className="p-8 surface-card">
           <form onSubmit={handleSubmit(addPost)}>
-            <div className="flex justify-between items-center gap-4 mb-4">
+            <div className="flex justify-between items-center gap-3 mb-6">
               <input
                 {...register("body")}
                 type="text"
                 placeholder="What's on your mind?"
-                className="bg-slate-100 rounded-4xl border-slate-400 w-full"
+                className="input-field"
               />
               <div>
                 <label htmlFor="photo">
@@ -67,9 +67,7 @@ export default function CreatePost() {
                 />
               </div>
             </div>
-            <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">
-              Add Post
-            </button>
+            <button className="btn-primary">Add Post</button>
           </form>
         </div>
       </div>
