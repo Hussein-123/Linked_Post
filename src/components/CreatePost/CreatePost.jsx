@@ -45,19 +45,19 @@ export default function CreatePost() {
   }
   return (
     <>
-      <div className="w-full md:w-[90%] lg:w-[70%] px-3 sm:px-6 mx-auto mb-10 mt-12">
-        <div className="p-8 surface-card">
+      <div className="w-full md:w-[90%] lg:w-[70%] px-3 sm:px-5 mx-auto mb-10 mt-10">
+        <div className="p-5 sm:p-6 md:p-8 surface-card">
           <form onSubmit={handleSubmit(addPost)}>
-            <div className="flex justify-between items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
               <input
                 {...register("body")}
                 type="text"
                 placeholder="What's on your mind?"
                 className="input-field"
               />
-              <div>
-                <label htmlFor="photo">
-                  <i className="fa-solid fa-images fa-xl text-green-600 cursor-pointer"></i>
+              <div className="shrink-0 flex items-center justify-center">
+                <label htmlFor="photo" className="cursor-pointer">
+                  <i className="fa-solid fa-images fa-xl text-green-600"></i>
                 </label>
                 <input
                   {...register("image")}

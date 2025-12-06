@@ -100,6 +100,13 @@ a {
   letter-spacing: 0.01em;
 }
 
+.logo-pill {
+  min-width: 42px;
+  height: 42px;
+  justify-content: center;
+  padding: 9px 12px;
+}
+
 .btn-primary {
   display: inline-flex;
   justify-content: center;
@@ -113,6 +120,22 @@ a {
   font-weight: 600;
   box-shadow: 0 14px 30px rgba(14, 165, 233, 0.28);
   transition: transform 150ms ease, box-shadow 150ms ease, opacity 120ms ease;
+}
+
+.btn-primary.auto-width {
+  width: auto;
+  min-width: 140px;
+}
+
+.btn-primary.comment-action {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .btn-primary.comment-action {
+    width: auto;
+    min-width: 160px;
+  }
 }
 
 button,
@@ -143,7 +166,7 @@ button,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 12px;
   color: var(--accent-strong);
   background: rgba(14, 165, 233, 0.08);
@@ -167,6 +190,10 @@ button,
   transition: border-color 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
 }
 
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
 .input-field:focus {
   outline: none;
   border-color: var(--accent-strong);
@@ -188,4 +215,46 @@ button,
 
 .subtle-border {
   border: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: 16px 12px 48px;
+  }
+
+  .surface-card {
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .btn-primary {
+    padding: 8px 11px;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .btn-ghost {
+    padding: 8px 11px;
+    gap: 6px;
+  }
+
+  .pill {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .logo-pill {
+    min-width: 40px;
+    height: 40px;
+    padding: 8px 11px;
+  }
+
+  .input-field {
+    padding: 10px 12px;
+  }
 }

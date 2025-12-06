@@ -43,22 +43,25 @@ export default function CreateComment({ postId }) {
   return (
     <>
       <form
-        className="flex gap-2 justify-between"
+        className="w-full flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 lg:gap-5 bg-slate-50/80 border border-slate-200 rounded-2xl px-3 py-3 sm:px-4 sm:py-3 lg:px-5 lg:py-4 shadow-sm"
         onSubmit={handleSubmit(addComment)}
       >
         <input
           {...register("content")}
           type="text"
-          className="w-[80%] input-field"
-          placeholder="Comment ..........."
+          className="w-full sm:flex-1 input-field bg-white min-h-[46px] sm:min-h-[48px] lg:min-h-[52px]"
+          placeholder="Write a comment..."
         />
         <input
           {...register("post")}
           type="hidden"
           value={postId}
-          className="w-[80%] bg-transparent"
+          className="w-full bg-transparent"
         />
-        <button type="submit" className="btn-ghost">
+        <button
+          type="submit"
+          className="btn-primary comment-action sm:h-[48px] lg:h-[52px]"
+        >
           Add Comment
         </button>
       </form>

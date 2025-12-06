@@ -37,14 +37,14 @@ export default function Navbar() {
   return (
     <>
       <nav className="glass-nav sticky top-0 w-full z-30">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="pill">LP</div>
-            <span className="self-center text-2xl font-semibold whitespace-nowrap text-slate-900">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-3 sm:px-4 py-3 gap-2">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3">
+            <div className="pill logo-pill text-sm sm:text-base">LP</div>
+            <span className="self-center text-xl sm:text-2xl font-semibold whitespace-nowrap text-slate-900">
               Linked Posts
             </span>
           </Link>
-          <div className="flex gap-4 items-center md:order-2">
+          <div className="flex gap-3 items-center md:order-2">
             {token !== null ? (
               <>
                 <button
@@ -95,11 +95,11 @@ export default function Navbar() {
                 </div>
               </>
             ) : (
-              <ul className="flex gap-3 text-base md:text-lg font-semibold">
+              <ul className="flex gap-2 sm:gap-3 text-sm sm:text-base md:text-lg font-semibold">
                 <li>
                   <NavLink
                     to="/login"
-                    className="btn-ghost px-4 py-2 hover:no-underline"
+                    className="btn-ghost px-3 py-2 hover:no-underline"
                   >
                     Login
                   </NavLink>
@@ -107,7 +107,7 @@ export default function Navbar() {
                 <li>
                   <NavLink
                     to="/register"
-                    className="btn-primary w-auto px-4 py-2 hover:no-underline"
+                    className="btn-primary w-auto px-3 py-2 hover:no-underline"
                   >
                     Register
                   </NavLink>
